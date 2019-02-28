@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习音乐播放器</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="player">
+
+        <div class="header">仅仅是个播放器</div>
+        <div class="pic">
+            <img src="./img/bar_chart.svg" alt="pic" id="pic_img">
+        </div>
+        <div class="info">
+            <div class="musicName">音乐的名字</div>
+            <div class="singer">演唱者</div>
+        </div>
+        <div class="lrc_resolve">
+            <ul id="lyric">
+                <li>歌词加载中请稍后...</li>
+            </ul>
+        </div>
+        <!-- 进度条区域 -->
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="contrul">
+            <div class="previous">
+                <img src="./img/previous.svg" alt="上一首">
+            </div>
+            <div class="pause-play">
+                <img src="./img/pause.svg" alt="播放控制">
+            </div>
+            <div class="next">
+                <img src="./img/next.svg" alt="下一首">
+            </div>
+        </div>
+        <div class="timer">
+            <div class="current">00:00</div>
+            <div class="total">00:00</div>
+        </div>
+        <div class="menus">
+            <div class="order_random">
+                <img src="./img/sequence.svg" alt="pattern">
+            </div>
+            <div class="volume_control">
+                <a href="javascript:void(0)">
+                    <img src="./img/volume_down.svg" alt="silence" id="mute-sonic">
+                </a>
+                <span class="volume_bar_box">
+                    <div class="volume_bar_core"></div>
+                </span>
+            </div>
+            <div class="menus_list">
+                <a href="javascript:void(0)">
+                    <img src="./img/more.svg" alt="more">
+                </a>
+            </div>
+        </div>
+        <div class="panel_list">
+           <ul class="panel_list_ul">
+               <!-- <li class="" data-index="0">
+                   <div class="col col-1"></div>
+                   <div class="col col-2">01.</div>
+                   <div class="col col-3">歌曲名称</div>
+                   <div class="col col-4">演唱者</div>
+               </li> -->
+           </ul> 
+           <div class="panel_list_close">
+               》》
+           </div>
+        </div>
+        <audio src="" id="voice"></audio>
+
+    </div>
+    <script type="text/html" id="temp">
+        {{each musicList value index}}
+            <li class="" data-index={{index}}>
+            <div class="col col-1"></div>
+            <div class="col col-2">{{index+1}}.</div>
+            <div class="col col-3">{{value.name}}</div>
+            <div class="col col-4">{{value.singer}}</div>
+            </li>
+        {{/each}}
+    </script>
+    <script type="text/html" id="lyricTemp">
+        {{each lyricObj value key}}
+            <li class="lrc_ul_item" data-time="{{key}}">{{value}}</li>
+        {{/each}}
+    </script>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./lib/art-template.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
